@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 struktur</title>
+    <style>
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      header h1,
+      footer {
+        display: flex;
+        justify-content: center;
+      }
+
+      header {
+        border: 2px solid black;
+      }
+
+      article {
+        border: 2px solid black;
+        margin-bottom: 1rem;
+      }
+
+      footer {
+        border: 2px solid black;
+        padding: 1rem;
+      }
+
+      @media (min-width: 700px) {
+        section {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Titel</h1>
+    </header>
+    <main>
+      <h2>Undertitel</h2>
+      <section>
+        <article>
+          <img src="img/placeimg_640_480_animals.jpg" alt="hund" />
+          <h3>Article 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
+            labore enim voluptatibus facere exercitationem veniam delectus nisi
+            totam ipsum unde, id dolores? Alias aperiam molestias ex eveniet
+            delectus. Doloribus, ex.
+          </p>
+        </article>
+        <article>
+          <img src="img/placeimg_640_480_nature.jpg" alt="natur" />
+          <h3>Article 2</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, fugit
+            libero. Officiis temporibus quaerat voluptatibus, commodi suscipit
+            distinctio, unde voluptas, deserunt iusto saepe nobis ea? Nemo
+            expedita quam ad sequi?
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer>This is the footer</footer>
+  </body>
+</html>
