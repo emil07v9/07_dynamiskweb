@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 struktur</title>
+    <style>
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      main {
+        margin: 2rem;
+      }
+
+      header h1,
+      footer {
+        display: flex;
+        justify-content: center;
+      }
+
+      header {
+        border: 2px solid black;
+      }
+
+      article {
+        border: 2px solid black;
+        margin-bottom: 1rem;
+      }
+
+      footer {
+        border: 2px solid black;
+        padding: 1rem;
+      }
+
+      @media (min-width: 700px) {
+        section {
+          display: flex;
+        }
+
+        main {
+          margin: 6rem;
+        }
+
+        article {
+          margin-right: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Titel</h1>
+    </header>
+    <main>
+      <h2>Undertitel</h2>
+      <section>
+        <article>
+          <img src="img/placeimg_640_480_animals.jpg" alt="hund" />
+          <h3>Article 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
+            labore enim voluptatibus facere exercitationem veniam delectus nisi
+            totam ipsum unde, id dolores? Alias aperiam molestias ex eveniet
+            delectus. Doloribus, ex.
+          </p>
+        </article>
+        <article>
+          <img src="img/placeimg_640_480_nature.jpg" alt="natur" />
+          <h3>Article 2</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, fugit
+            libero. Officiis temporibus quaerat voluptatibus, commodi suscipit
+            distinctio, unde voluptas, deserunt iusto saepe nobis ea? Nemo
+            expedita quam ad sequi?
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer>This is the footer</footer>
+    <script>
+      const header = document.querySelector("header h1");
+      header.innerHTML = "Udskiftet titel";
+      const undertitel = document.querySelector("h2");
+      const img1 = document.querySelector("article:nth-child(1) img");
+      const img2 = document.querySelector("article:nth-child(2) img");
+      const paragraf1 = document.querySelector("article:nth-child(1) p");
+      paragraf1.textContent = "Her er en ny tekst til første paragraf";
+      const paragraf2 = document.querySelector("article:nth-child(2) p");
+      paragraf2.innerHTML =
+        "<b>Her er en ny tekst til anden paragraf lavet med innerHTML og b-tag</b>";
+      const artikeltitel1 = document.querySelector("article:nth-child(1) h3");
+      artikeltitel1.innerHTML = "Artikel 1 - her er den nye titel";
+      const artikeltitel2 = document.querySelector("article:nth-child(2) h3");
+      artikeltitel2.innerHTML = "Artikel 2 - her er den nye titel";
+      console.log(
+        header,
+        undertitel,
+        img1,
+        img2,
+        paragraf1,
+        paragraf2,
+        artikeltitel1,
+        artikeltitel2
+      );
+    </script>
+  </body>
+</html>
