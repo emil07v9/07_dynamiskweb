@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A</title>
+    <style>
+      .typo {
+        font-family: monospace;
+        color: darkblue;
+        line-height: 150%;
+      }
+
+      .typo2 {
+        font-size: 2rem;
+        color: blueviolet;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button>Reset</button>
+    <h3 class="h3">En</h3>
+    <p class="p">
+      Gochujang blue bottle iPhone quinoa, umami lumbersexual semiotics disrupt
+      coloring book squid. Tilde banjo flannel PBR&B umami vape plaid occupy
+      prism lumbersexual man braid.
+    </p>
+    <h3 class="h3">Lille</h3>
+    <p class="p">
+      Fam before they sold out edison bulb, la croix sartorial cray poke yuccie
+      copper mug ugh. Kickstarter yr tumblr synth.
+    </p>
+    <h3 class="h3">Bitte</h3>
+    <p class="p">
+      Selvage authentic heirloom put a bird on it umami sustainable bitters meh
+      bicycle rights kombucha af squid. DIY air plant drinking vinegar XOXO raw
+      denim ethical semiotics.
+    </p>
+    <h3 class="h3">Smule</h3>
+    <p class="p">
+      Roof party tumeric next level etsy church-key plaid. Fashion axe deep v
+      tumeric kickstarter tofu narwhal direct trade. Hexagon gentrify pitchfork
+      ethical echo park.
+    </p>
+    <h3 class="h3">Tekst</h3>
+    <p class="p">
+      Hella unicorn pinterest organic. Hot chicken activated charcoal chia you
+      probably haven't heard of them slow-carb fingerstache microdosing
+      sartorial four loko etsy yr locavore. Edison bulb trust fund try-hard
+      salvia direct trade tbh.
+    </p>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", start);
+      function start() {
+        console.log(start);
+        const alleP = document.querySelectorAll(".p");
+        alleP.forEach((p) => p.addEventListener("click", typoFunk));
+
+        function typoFunk() {
+          this.classList.add("typo");
+        }
+
+        const btn = document.querySelector("button");
+        btn.addEventListener("click", removeFunk);
+
+        function removeFunk() {
+          alleP.forEach((p) => p.classList.remove("typo"));
+        }
+
+        const alleH3 = document.querySelectorAll(".h3");
+        alleH3.forEach((h3) => h3.addEventListener("click", typo2Funk));
+
+        function typo2Funk() {
+          this.classList.add("typo2");
+        }
+      }
+    </script>
+  </body>
+</html>
