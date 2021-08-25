@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body>
+    <ul id="display"></ul>
+    <script>
+      let playliste = [
+        "sang1",
+        "sang2",
+        "sang3",
+        "sang4",
+        "sang5",
+        "sang6",
+        "sang7",
+        "sang8",
+        "sang9",
+        "sang10",
+      ];
+
+      const liste = document.querySelector("ul");
+      playliste.forEach(spilDem);
+
+      function spilDem(s) {
+        console.log(s);
+        let sange = document.createElement("li");
+        sange.textContent = s;
+        liste.appendChild(sange);
+      }
+    </script>
+  </body>
+</html>
