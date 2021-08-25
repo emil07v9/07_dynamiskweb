@@ -84,8 +84,6 @@
     <footer>This is the footer</footer>
     <script>
       //Nye tilføjelser
-      //   const newarticle = document.createElement("article");
-      //   newarticle.appendChild(img);
 
       const header = document.querySelector("header h1");
       header.innerHTML = "Udskiftet titel";
@@ -117,6 +115,29 @@
         artikeltitel1,
         artikeltitel2
       );
+
+      //Oprette og indsætte ny artikel
+      let newarticle = document.createElement("article");
+      document.body.appendChild(newarticle);
+
+      //Oprette og indsætte overskrift
+      let h1 = document.createElement("h1");
+      let overskrift = document.createTextNode("Min overskrift til opgave 4");
+      newarticle.appendChild(h1);
+      h1.appendChild(overskrift);
+
+      //Oprette og indsætte tekst
+      let newparagraph = document.createElement("p");
+      let tekst = document.createTextNode("Min tekst til opgave 4");
+      newarticle.appendChild(newparagraph);
+      newparagraph.appendChild(tekst);
+
+      //Oprette og indsætte img
+      let newimg = document.createElement("img");
+      newimg.src = "img/animal.jpg";
+      newarticle.appendChild(newimg);
+
+      console.log("newarticle");
     </script>
   </body>
 </html>
