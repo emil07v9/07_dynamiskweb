@@ -83,14 +83,30 @@
     </main>
     <footer>This is the footer</footer>
     <script>
+      //Nye tilføjelser
+      //   const newarticle = document.createElement("article");
+      //   newarticle.appendChild(img);
+
       const header = document.querySelector("header h1");
+      header.innerHTML = "Udskiftet titel";
       const undertitel = document.querySelector("h2");
       const img1 = document.querySelector("article:nth-child(1) img");
+      img1.src = "img/arkitektur.jpg";
+      img1.alt = "billede af arkitektur";
+
       const img2 = document.querySelector("article:nth-child(2) img");
+      img2.src = "img/arkitektur.jpg";
+      img2.alt = "billede af arkitektur";
+
       const paragraf1 = document.querySelector("article:nth-child(1) p");
+      paragraf1.textContent = "Her er en ny tekst til første paragraf";
       const paragraf2 = document.querySelector("article:nth-child(2) p");
+      paragraf2.innerHTML =
+        "<b>Her er en ny tekst til anden paragraf lavet med innerHTML og b-tag</b>";
       const artikeltitel1 = document.querySelector("article:nth-child(1) h3");
+      artikeltitel1.innerHTML = "Artikel 1 - her er den nye titel";
       const artikeltitel2 = document.querySelector("article:nth-child(2) h3");
+      artikeltitel2.innerHTML = "Artikel 2 - her er den nye titel";
       console.log(
         header,
         undertitel,
