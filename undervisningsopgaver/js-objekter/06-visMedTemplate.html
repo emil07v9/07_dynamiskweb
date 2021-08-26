@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        display: block;
+        width: 80px;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .dyr {
+        border: 2px solid #000;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <article id="dyr">
+      <p></p>
+      <img src="" alt="" />
+    </article>
+    <section class="data-container"></section>
+    <template>
+      <article class="dyr">
+        <h3></h3>
+        <img src="" alt="" />
+        <p class="type"></p>
+        <p class="levested"></p>
+      </article>
+    </template>
+    <script>
+      document.addEventListener("DOMContentLoaded", start);
+      let dyreliste = [
+        {
+          navn: "Gris",
+          type: "pattedyr",
+          levested: "fra grisefarmen",
+          billede: "img/pig.png",
+        },
+        {
+          navn: "Frø",
+          type: "amfibie",
+          levested: "fra sumpen",
+          billede: "img/frog.png",
+        },
+        {
+          navn: "Ræv",
+          type: "pattedyr",
+          levested: "fra skoven",
+          billede: "img/fox.png",
+        },
+        {
+          navn: "Krokodille",
+          type: "reptil",
+          levested: "fra floden",
+          billede: "img/kroko.jpg",
+        },
+        {
+          navn: "Sild",
+          type: "fisk",
+          levested: "fra havet",
+          billede: "img/sild.jpg",
+        },
+      ];
+      console.log(dyreliste);
+
+      function start() {
+        const container = document.querySelector(".data-container");
+        const elevTemplate = document.querySelector("template");
+
+        dyreliste.forEach((dyr) => {
+          let klon = elevTemplate.cloneNode(true).content;
+          klon.querySelector("h3").textContent = dyr.navn;
+          klon.querySelector(".type").textContent = dyr.type;
+          klon.querySelector(".levested").textContent = dyr.levested;
+          klon.querySelector("img").src = dyr.billede;
+          container.appendChild(klon);
+        });
+
+        const listevisning = document.querySelector("#liste");
+        //Løb personlisten igennem og indsæt i #liste
+        dyreliste.forEach((dyr) => {
+          //placer person i html
+          listevisning.innerHTML += `<p>${dyr.navn} ${dyr.type} ${dyr.levested}`;
+        });
+
+        const dyr = {
+          navn: "Haj",
+          type: "Pattedyr",
+          billede: "img/haj.jpg",
+          levested: "Havet",
+        };
+        console.log(dyr);
+        console.log(
+          `navn:${dyr.navn},type:${dyr.type},billede:${dyr.billede},levested:${dyr.levested}`
+        );
+
+        //Vis object værdier i DOM-elementet
+        const destination = document.querySelector("#dyr");
+        destination.querySelector("p").textContent =
+          "Navn: " +
+          dyr.navn +
+          ", Type: " +
+          dyr.type +
+          ", Levested: " +
+          dyr.levested;
+
+        destination.querySelector("img").src = dyr.billede;
+      }
+    </script>
+  </body>
+</html>
