@@ -24,75 +24,44 @@
       <p></p>
       <img src="" alt="" />
     </article>
-
-    <section class="data-container"></section>
-    <template>
-      <article class="dyr">
-        <h3></h3>
-        <img src="" alt="" />
-        <p class="type"></p>
-        <p class="levested"></p>
-      </article>
-    </template>
+    <main>
+      <section class="data-container"></section>
+      <template>
+        <article class="dyr">
+          <h3></h3>
+          <img src="" alt="" />
+          <p class="type"></p>
+          <p class="levested"></p>
+        </article>
+      </template>
+    </main>
     <script>
-      document.addEventListener("DOMContentLoaded", start);
+      document.addEventListener("DOMContentLoaded", vis);
+      ("use strict");
+      const fil = "alleDyr.json";
 
-      function start() {
-        const fil = "alleDyr.json";
+      async function hentdata(fil) {
+        const resultat = await fetch(fil);
+        const json = await resultat.json();
+        vis(json);
+      }
 
-        async function hentdata(fil) {
-          const resultat = await fetch(fil);
-          const json = await resultat.json();
-          vis(json);
-        }
+      //   console.log(hentdata);
 
-        function vis(json) {
-          console.log(json);
-        }
-
-        hentdata(fil);
-
-        const container = document.querySelector(".data-container");
+      function vis(json) {
+        const container = document.querySelector("main");
         const elevTemplate = document.querySelector("template");
+        json.forEach((dyr) => {
+          const klon = elevTemplate.cloneNode(true).content;
+          klon.querySelector("h3").textContent = dyr.navn;
+          klon.querySelector(".type").textContent = dyr.type;
+          klon.querySelector(".levested").textContent = dyr.levested;
+          klon.querySelector("img").src = dyr.billede;
+          container.appendChild(klon);
+        });
 
-        // dyreliste.forEach((dyr) => {
-        //   let klon = elevTemplate.cloneNode(true).content;
-        //   klon.querySelector("h3").textContent = dyr.navn;
-        //   klon.querySelector(".type").textContent = dyr.type;
-        //   klon.querySelector(".levested").textContent = dyr.levested;
-        //   klon.querySelector("img").src = dyr.billede;
-        //   container.appendChild(klon);
-        // });
-
-        // const listevisning = document.querySelector("#liste");
-        // //Løb personlisten igennem og indsæt i #liste
-        // dyreliste.forEach((dyr) => {
-        //   //placer person i html
-        //   listevisning.innerHTML += `<p>${dyr.navn} ${dyr.type} ${dyr.levested}`;
-        // });
-
-        const dyr = {
-          navn: "Haj",
-          type: "Pattedyr",
-          billede: "img/haj.jpg",
-          levested: "Havet",
-        };
-        console.log(dyr);
-        console.log(
-          `navn:${dyr.navn},type:${dyr.type},billede:${dyr.billede},levested:${dyr.levested}`
-        );
-
-        //Vis object værdier i DOM-elementet
-        const destination = document.querySelector("#dyr");
-        destination.querySelector("p").textContent =
-          "Navn: " +
-          dyr.navn +
-          ", Type: " +
-          dyr.type +
-          ", Levested: " +
-          dyr.levested;
-
-        destination.querySelector("img").src = dyr.billede;
+        console.log(vis);
+        hentdata(fil);
       }
     </script>
   </body>
