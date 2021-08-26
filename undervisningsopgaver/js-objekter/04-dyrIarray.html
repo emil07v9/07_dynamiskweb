@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <article id="dyr">
+      <p></p>
+      <img src="" alt="" />
+    </article>
+    <script>
+      document.addEventListener("DOMContentLoaded", start);
+
+      function start() {
+        const dyr = {
+          navn: "Haj",
+          type: "Pattedyr",
+          billede: "img/haj.jpg",
+          levested: "Havet",
+        };
+        console.log(dyr);
+        console.log(
+          `navn:${dyr.navn},type:${dyr.type},billede:${dyr.billede},levested:${dyr.levested}`
+        );
+
+        //Vis object værdier i DOM-elementet
+        const destination = document.querySelector("#dyr");
+        destination.querySelector("p").textContent =
+          "Navn: " +
+          dyr.navn +
+          ", Type: " +
+          dyr.type +
+          ", Levested: " +
+          dyr.levested;
+
+        destination.querySelector("img").src = dyr.billede;
+      }
+
+      const dyreliste = [
+        {
+          navn: "pig",
+          type: "pattedyr",
+          levested: "grisefarm",
+          billede: "img/pig.png",
+        },
+        {
+          navn: "frog",
+          type: "amfibie",
+          levested: "sump",
+          billede: "img/frog.png",
+        },
+        {
+          navn: "fox",
+          type: "pattedyr",
+          levested: "skov",
+          billede: "img/fox.png",
+        },
+        {
+          navn: "krokodille",
+          type: "reptil",
+          levested: "flod",
+          billede: "img/kroko.jpg",
+        },
+        {
+          navn: "sild",
+          type: "fisk",
+          levested: "hav",
+          billede: "img/sild.jpg",
+        },
+      ];
+      console.log(dyreliste);
+    </script>
+  </body>
+</html>
