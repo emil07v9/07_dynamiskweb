@@ -8,7 +8,7 @@
     <style>
       img {
         display: block;
-        width: 100%;
+        width: 50%;
         height: auto;
         object-fit: cover;
       }
@@ -16,8 +16,10 @@
   </head>
   <body>
     <article id="dyr">
-      <p></p>
+      <h3></h3>
       <img src="" alt="" />
+      <p class="p1">Type: <span></span></p>
+      <p class="p2">Levested: <span></span></p>
     </article>
     <script>
       document.addEventListener("DOMContentLoaded", start);
@@ -36,13 +38,9 @@
 
         //Vis object værdier i DOM-elementet
         const destination = document.querySelector("#dyr");
-        destination.querySelector("p").textContent =
-          "Navn: " +
-          dyr.navn +
-          ", Type: " +
-          dyr.type +
-          ", Levested: " +
-          dyr.levested;
+        destination.querySelector("h3").textContent = dyr.navn;
+        destination.querySelector(".p1 span").textContent = dyr.type;
+        destination.querySelector(".p2 span").textContent = dyr.levested;
 
         destination.querySelector("img").src = dyr.billede;
       }
