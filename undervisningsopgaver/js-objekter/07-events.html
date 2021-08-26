@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      article {
+        margin: 1rem;
+      }
+
+      h3 {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.9rem;
+        color: #000;
+      }
+
+      .data-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="data-container"></section>
+      <template>
+        <article>
+          <img src="" alt="" />
+          <h3></h3>
+          <p></p>
+        </article>
+      </template>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", start);
+      let eventliste = [
+        {
+          billede:
+            "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/W6dOqabNhHKBPXxxKKEZRA84-360.jpg",
+          titel: "A Calling",
+          instruktøren: "Christian Bengtson",
+          land: "Danmark",
+          varighed: "20 min",
+          aarstal: "2019",
+        },
+        {
+          billede:
+            "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/Q8K1pZrOs03Q0IrDkBwGVu5r-360.jpg",
+          titel: "A Hole In My Heart",
+          instruktøren: "Mees Peijnenburg",
+          land: "Holland",
+          varighed: "9 min",
+          aarstal: "2015",
+        },
+        {
+          billede:
+            "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/hUd4SdGQ8I23ovxWnGtBz4Ck-360.jpg",
+          titel: "A Place In The Sun - 110 years after the genocide",
+          instruktøren: "Christian Zipfel",
+          land: "Tyskland",
+          varighed: "20 min",
+          aarstal: "2018",
+        },
+        {
+          billede:
+            "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/9ZXEAY471UE4gFwHMXeRb17p-360.jpg",
+          titel: "A Summer Place",
+          instruktøren: "Alexandra Matheou",
+          land: "Grækenland",
+          varighed: "21 min",
+          aarstal: "2021",
+        },
+        {
+          billede:
+            "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/Zdt2ODEqSVOkNe8nUaSSu8kd-360.jpg",
+          titel: "A Tower of Two",
+          instruktøren: "Jacob Krzysztof Glogowski",
+          land: "Danmark",
+          varighed: "21 min",
+          aarstal: "2019",
+        },
+      ];
+      console.log(eventliste);
+
+      function start() {
+        const container = document.querySelector(".data-container");
+        const eventTemplate = document.querySelector("template");
+
+        eventliste.forEach((event) => {
+          let klon = eventTemplate.cloneNode(true).content;
+          klon.querySelector("h3").textContent = event.titel;
+          klon.querySelector("p").textContent =
+            event.instruktøren +
+            " | " +
+            event.land +
+            " | " +
+            event.varighed +
+            " | " +
+            event.aarstal;
+          klon.querySelector("img").src = event.billede;
+          container.appendChild(klon);
+        });
+      }
+    </script>
+  </body>
+</html>
