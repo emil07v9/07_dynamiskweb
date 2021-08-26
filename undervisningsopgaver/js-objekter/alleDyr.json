@@ -1,0 +1,32 @@
+[
+  {
+    "navn": "Gris",
+    "type": "pattedyr",
+    "levested": "fra grisefarmen",
+    "billede": "img/pig.png"
+  },
+  {
+    "navn": "Frø",
+    "type": "amfibie",
+    "levested": "fra sumpen",
+    "billede": "img/frog.png"
+  },
+  {
+    "navn": "Ræv",
+    "type": "pattedyr",
+    "levested": "fra skoven",
+    "billede": "img/fox.png"
+  },
+  {
+    "navn": "Krokodille",
+    "type": "reptil",
+    "levested": "fra floden",
+    "billede": "img/kroko.jpg"
+  },
+  {
+    "navn": "Sild",
+    "type": "fisk",
+    "levested": "fra havet",
+    "billede": "img/sild.jpg"
+  }
+]
