@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Persongalleri</title>
+    <style>
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      #liste {
+        box-shadow: 3px -1px 14px 2px rgba(0, 0, 0, 0.48);
+        max-width: 300px;
+        text-align: center;
+        margin: 1rem;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .data-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        place-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Persongalleri</h1>
+      <section class="data-container"></section>
+      <template>
+        <article id="liste">
+          <h2></h2>
+          <img src="" alt="" />
+          <p class="email"></p>
+          <p class="tro"></p>
+        </article>
+      </template>
+    </main>
+    <footer>Lavet af Emilie Schultz</footer>
+    <script>
+      let listePersoner;
+      let container;
+      let temp;
+
+      const url = "https://persongalleri-5d3e.restdb.io/rest/persongalleri";
+      const options = {
+        headers: {
+          "x-apikey": "600fe9211346a1524ff12e31",
+        },
+      };
+      document.addEventListener("DOMContentLoaded", start);
+
+      function start() {
+        container = document.querySelector("section");
+        temp = document.querySelector("template");
+        hentdata();
+      }
+      async function hentdata() {
+        const response = await fetch(url, options);
+        listePersoner = await response.json();
+        visListe();
+      }
+
+      function visListe() {
+        console.log(listePersoner);
+
+        listePersoner.forEach((person) => {
+          let klon = temp.cloneNode(true).content;
+          klon.querySelector("h2").textContent =
+            person.fornavn + " " + person.efternavn;
+          klon.querySelector("img").src = "img/" + person.billede;
+          klon.querySelector(".email").textContent = "Email: " + person.email;
+          klon.querySelector(".tro").textContent = "Troende: " + person.troende;
+          container.appendChild(klon);
+        });
+      }
+    </script>
+  </body>
+</html>
