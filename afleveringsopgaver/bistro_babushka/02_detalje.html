@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bistro Babushka</title>
+    <link rel="stylesheet" href="https://use.typekit.net/pnl0ayz.css" />
+    <style>
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      #liste {
+        box-shadow: 3px -1px 14px 2px rgba(0, 0, 0, 0.48);
+        max-width: 800px;
+        text-align: center;
+        margin: 1rem;
+      }
+
+      button {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        color: #da291c;
+        font-size: 1rem;
+        border: 2px solid #da291c;
+        background-color: transparent;
+        padding: 15px 32px;
+        margin-left: 2rem;
+      }
+
+      h1 {
+        font-family: ingeborg-block, sans-serif;
+        font-weight: 800;
+        font-style: normal;
+        font-size: 6rem;
+        color: #da291c;
+        text-align: center;
+      }
+
+      h2 {
+        font-family: ingeborg-block, sans-serif;
+        font-weight: 800;
+        font-style: normal;
+        font-size: 3rem;
+        color: #0032a0;
+        text-align: center;
+      }
+
+      h3 {
+        font-family: century-gothic, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      p {
+        font-family: century-gothic, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        margin: 1rem;
+      }
+
+      main {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Bistro Babushka</h1>
+      <h2></h2>
+    </header>
+    <button>Tilbage</button>
+    <main>
+      <article id="liste">
+        <img src="" alt="" />
+        <h3></h3>
+        <p class="beskrivelse"></p>
+        <p class="pris"></p>
+      </article>
+    </main>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get("id");
+      let listeMenu;
+
+      const url = "https://babushka-dd8a.restdb.io/rest/menu/";
+      const options = {
+        headers: {
+          "x-apikey": "600ec2fb1346a1524ff12de4",
+        },
+      };
+
+      document.addEventListener("DOMContentLoaded", hentdata());
+
+      async function hentdata() {
+        const response = await fetch(url + id, options);
+        listeMenu = await response.json();
+        console.log(listeMenu);
+        visMenu();
+      }
+
+      function visMenu() {
+        document.querySelector("h3").textContent = listeMenu.navn;
+        document.querySelector("h2").textContent = listeMenu.kategori;
+        document.querySelector("img").src =
+          "img/" + listeMenu.billednavn + "-md.jpg";
+        document.querySelector(".beskrivelse").textContent =
+          listeMenu.langbeskrivelse;
+        document.querySelector(".pris").textContent = listeMenu.pris + ",-";
+      }
+      document.querySelector("button").addEventListener("click", () => {
+        window.history.back();
+        console.log(listeMenu);
+      });
+    </script>
+  </body>
+</html>
