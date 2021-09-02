@@ -31,6 +31,12 @@
         background-color: transparent;
         padding: 15px 32px;
         margin-left: 2rem;
+        cursor: pointer;
+      }
+
+      button:hover {
+        color: white;
+        background-color: #da291caf;
       }
 
       h1 {
@@ -68,6 +74,12 @@
         display: flex;
         justify-content: center;
       }
+
+      @media (max-width: 650px) {
+        h1 {
+          font-size: 4rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -80,6 +92,7 @@
       <article id="liste">
         <img src="" alt="" />
         <h3></h3>
+        <p class="oprindelse"></p>
         <p class="beskrivelse"></p>
         <p class="pris"></p>
       </article>
@@ -112,6 +125,8 @@
           "img/" + listeMenu.billednavn + "-md.jpg";
         document.querySelector(".beskrivelse").textContent =
           listeMenu.langbeskrivelse;
+        document.querySelector(".oprindelse").textContent =
+          "Oprindelsesregion: " + listeMenu.oprindelsesregion;
         document.querySelector(".pris").textContent = listeMenu.pris + ",-";
       }
       document.querySelector("button").addEventListener("click", () => {
